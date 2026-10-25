@@ -10,3 +10,6 @@ body[data-business=tapinta] button,body[data-business=tapinta] input,body[data-b
 .brand-store-name{display:block}.sidebar .maker-credit{display:block;margin-top:5px}
 
 body[data-business] :focus-visible{outline-color:var(--accent)}body[data-mode=admin] .full-admin-link{display:none!important}
+
+/* Keep the hero action legible over its pale fill. */
+body[data-business=tapinta] a.button{color:var(--button-ink)}
