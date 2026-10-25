@@ -1,0 +1,29 @@
+import {readFile,writeFile,readdir,mkdir,rm,cp} from 'node:fs/promises';
+import {build} from 'esbuild';
+import path from 'node:path';
+const cloud=JSON.parse(await readFile('cloud.json','utf8'));
+const shops=['esmeraldas','ivagos','quedetalle','tapinta','dglobos'];
+await rm('dist',{recursive:true,force:true});await mkdir('dist',{recursive:true});
+for(const shop of shops){
+ const target='dist/'+shop,prefix='/Muestras/'+shop;
+ await cp('stores/'+shop,target,{recursive:true});await rm(target+'/seed.json');
+ await mkdir(target+'/admin/app',{recursive:true});await cp(target+'/admin/index.html',target+'/admin/app/index.html');
+ const seed=JSON.parse(await readFile('stores/'+shop+'/seed.json','utf8'));
+ const login=`<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><title>Entrar · ${seed.name} · KROMBYTE</title><link rel="stylesheet" href="/assets/admin.css"><link rel="stylesheet" href="/assets/store-theme.css"><link rel="stylesheet" href="/assets/accounts.css"></head><body data-business="${shop}" class="login-page"><main class="login-shell"><aside class="login-story"><p class="maker-credit">Creado por <strong>KROMBYTE</strong></p><h1>${seed.name}</h1><p>Tu catálogo, tus consultas y tu equipo. Un solo lugar para cuidar cada detalle.</p><div class="login-illustration" aria-hidden="true"><span>Catálogo</span><span>Consultas</span><span>Equipo</span></div></aside><section class="login-form-panel"><p class="login-kicker">Panel de administración</p><h2 id="login-title">Qué gusto tenerte aquí</h2><p id="login-description">Entrá con la cuenta que te asignó quien administra el negocio.</p><form id="login-form"><label class="setup-field" hidden>Tu nombre<input name="name" maxlength="70" autocomplete="name"></label><label id="email-label">Correo<input type="email" name="email" required autocomplete="username" maxlength="200"></label><label id="current-password-label">Contraseña<div class="password-wrap"><input name="password" type="password" required minlength="12" maxlength="128" autocomplete="current-password"><button type="button" id="show-password" aria-label="Mostrar contraseña">Ver</button></div></label><p class="setup-field" hidden>Usá al menos doce caracteres. Tu contraseña es personal.</p><button class="primary" id="login-submit" type="submit">Entrar al panel</button><p id="login-error" role="alert"></p></form><p id="login-help">¿No tenés cuenta o necesitás recuperar el acceso? Pedile ayuda a quien administra el negocio.</p></section></main><script type="module" src="/assets/login.mjs"></script></body></html>`;
+ await writeFile(target+'/admin/index.html',login);
+ const storePath=target+'/assets/demo-store.mjs';let store=await readFile(storePath,'utf8');store="import {apiResponse} from './transport.mjs';\n"+store.replace('await fetch(path,','await apiResponse(path,');await writeFile(storePath,store);
+ const loginPath=target+'/assets/login.mjs';let js=await readFile(loginPath,'utf8');
+ js="import {apiResponse,client} from './transport.mjs';\n"+js.replace("await fetch(mode===", "await apiResponse(mode===").replace("location.replace('/admin/')", "location.replace('/admin/app/')");
+ js+="\nif(mode==='login'){const session=await client.auth.getSession();if(session.data.session){const r=await apiResponse('/api/me');if(r.ok&&(await r.json()).authorized)location.replace('/admin/app/');}}\n";await writeFile(loginPath,js);
+ const receiptPath=target+'/assets/receipt.mjs';let receipt=await readFile(receiptPath,'utf8');await writeFile(receiptPath,"import {apiResponse} from './transport.mjs';\n"+receipt.replace("else fetch(","else apiResponse("));
+ const adminPath=target+'/assets/admin.mjs';let admin=await readFile(adminPath,'utf8');admin=admin.replace("catch(e){notify(e.message);app.innerHTML=", "catch(e){if(/acceso|sesión|permiso/i.test(e.message)){location.replace('/admin/');}notify(e.message);app.innerHTML=");await writeFile(adminPath,admin);
+ const cfg=JSON.stringify({...cloud,shop}).replace(/</g,'\\u003c');
+ async function rewrite(dir){for(const e of await readdir(dir,{withFileTypes:true})){const f=dir+'/'+e.name;if(e.isDirectory())await rewrite(f);else if(/\.(html|mjs|css)$/.test(f)){let s=await readFile(f,'utf8');if(f.endsWith('.html')){s=s.replace(/\b(href|src|action|poster)=(['"])\/(?!\/)/g,(_,a,q)=>a+'='+q+prefix+'/');s=s.replace('</head>','<script id="cloud-config" type="application/json">'+cfg+'</script></head>');}else if(f.endsWith('.mjs'))s=s.replace(/(['"`])\/(?!\/)/g,(_,q)=>q+prefix+'/');else s=s.replace(/url\(\s*(['"]?)\/(?!\/)/g,(_,q)=>'url('+q+prefix+'/');await writeFile(f,s);}}}
+ await rewrite(target);
+ // Transport is bundled after route adaptation so its external API paths stay intact.
+ await build({entryPoints:['src/transport.mjs'],outfile:target+'/assets/transport.mjs',bundle:true,format:'esm',target:'es2022',minify:true});
+ console.log('Construida',seed.name);
+}
+await writeFile('dist/.nojekyll','');
+await writeFile('dist/index.html','<!doctype html><html lang="es"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Muestras · KROMBYTE</title><style>body{margin:0;min-height:100svh;display:grid;place-items:center;background:#122219;color:#f1f2e8;font:18px/1.7 system-ui}main{max-width:520px;padding:32px}h1{font-size:64px;letter-spacing:-.06em}p{color:#c8d6bd}</style><main><small>KROMBYTE</small><h1>Muestras</h1><p>Abrí el enlace de presentación que recibiste para explorar tu propuesta.</p></main></html>');
+await writeFile('dist/404.html','<!doctype html><html lang="es"><meta charset="utf-8"><title>Enlace no encontrado · KROMBYTE</title><h1>Revisá tu enlace de presentación</h1><p>No encontramos esa página.</p></html>');

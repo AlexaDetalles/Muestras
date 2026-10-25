@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=DM+Sans:wght@400;500;600&display=swap');
+.gift-cutout{position:absolute;bottom:32px;right:0;width:42%;border:8px solid #c5db9c;border-radius:50%;transform:rotate(10deg);z-index:1}
+.gift-cutout .photo{border-radius:50%;aspect-ratio:1}
+.gift-paper-label{position:absolute;top:32px;left:30px;z-index:2;background:#c5db9c;padding:13px 24px;font:800 25px/.95 'Archivo',Arial,sans-serif;transform:rotate(-8deg);max-width:15ch;border:3px solid #812436}
+.floral-satellite{position:absolute;width:30%;right:0;bottom:105px;padding:7px;background:#dbe8cf;border-radius:24px;transform:rotate(9deg);box-shadow:8px 12px 0 #080f0c;z-index:1}
+.floral-satellite .photo{border-radius:18px;aspect-ratio:1}
+.dglobos{--paper:#f6f6ee;--ink:#171b20;--soft:#e5e6da;--accent:#ffe341;--button-ink:#171b20;--display:'Bricolage Grotesque',Arial,sans-serif;--body:'DM Sans',Arial,sans-serif;font-size:18px}
+.dglobos h1,.dglobos h2,.dglobos h3,.dglobos .wordmark{font-weight:800}
+.dglobos .demo-bar{background:#ffe341;color:#171b20;border-bottom:3px solid #171b20}
+.dglobos .nav{background:#f6f6ee;color:#171b20;border-bottom:3px solid #171b20}
+.dglobos .wordmark{font-size:34px}
+.dglobos .party-poster{background:#b5cafa;color:#171b20;padding-top:25px;padding-bottom:65px;border-bottom:3px solid #171b20}
+.dglobos .party-poster h1{font-size:clamp(108px,18vw,290px);letter-spacing:-.045em;line-height:.94}
+.dglobos .poster-bottom{margin-top:30px;margin-bottom:40px;gap:60px}
+.dglobos .poster-bottom .lead{font-size:22px}
+.dglobos .button,.dglobos button.primary,.dglobos .product-actions button{border:3px solid #171b20;box-shadow:6px 6px 0 #171b20;font-weight:600;border-radius:0}
+.dglobos .button:hover,.dglobos button.primary:hover{transform:translate(-2px,-2px);box-shadow:8px 8px 0 #171b20}
+.dglobos .button:active,.dglobos button.primary:active{transform:translate(4px,4px);box-shadow:2px 2px 0 #171b20}
+.dglobos .party-pictures{gap:35px;grid-template-columns:1.5fr 1fr;align-items:end}
+.dglobos .party-pictures .photo{border:3px solid #171b20;box-shadow:10px 10px 0 #171b20;aspect-ratio:1.7}
+.dglobos .party-small{padding:0 10px 18px 0}
+.dglobos .party-small .photo{aspect-ratio:1.2;transform:rotate(4deg)}
+.dglobos .party-routes{background:#f6f6ee}
+.dglobos .party-routes>h2{font-size:clamp(44px,6vw,90px);max-width:25ch}
+.dglobos .party-route{border:3px solid #171b20;background:#ffe341;color:#171b20;box-shadow:10px 10px 0 #171b20;margin-bottom:55px;gap:45px}
+.dglobos .party-route:nth-of-type(2){background:#f3a9bf;--accent:#f6f6ee;--button-ink:#171b20}
+.dglobos .party-route .photo{border:3px solid #171b20;aspect-ratio:1.2}
+.dglobos .party-route h3{font-size:56px}
+.dglobos .party-close{background:#b5cafa;color:#171b20;border-top:3px solid #171b20;border-bottom:3px solid #171b20;--accent:#ffe341;--button-ink:#171b20}
+.dglobos .footer{background:#f6f6ee;color:#171b20}
+.dglobos .footer-brand{font-weight:800}
+.dglobos dialog{border:4px solid #171b20;box-shadow:12px 12px 0 #171b20;background:#f6f6ee}
+.dglobos input,.dglobos select,.dglobos textarea{border:3px solid #171b20;background:white;border-radius:0}
+
+.style-name{display:inline-block;margin-top:14px;font-size:14px;font-weight:500;text-decoration:underline;text-underline-offset:5px}
+.hub{--body:'DM Sans',Arial,sans-serif;--display:'Cabinet Grotesk',Arial,sans-serif}
+
+@media(max-width:1100px){
+ .dglobos .party-route h3{font-size:44px}
+}
+@media(max-width:800px){.gift-paper-label{top:8px;left:40px}.gift-cutout{right:35px;bottom:35px;width:28%}
+ .dglobos .party-route{gap:30px;padding:30px}.dglobos .party-route h3{font-size:42px}.dglobos .poster-bottom .lead{font-size:20px}
+}
+@media(max-width:600px){.gift-paper-label{font-size:19px;padding:10px 15px;top:0;left:12px}.gift-cutout{width:38%;right:10px;bottom:25px;border-width:6px}.floral-satellite{width:32%;bottom:90px;right:0}
+ .dglobos .wordmark{font-size:29px}.dglobos .party-poster{padding-top:20px;padding-bottom:40px}.dglobos .party-poster h1{font-size:clamp(75px,23vw,138px)}.dglobos .poster-bottom{margin:25px 0 35px}.dglobos .poster-bottom .lead{font-size:19px}.dglobos .party-pictures{grid-template-columns:1.35fr 1fr;gap:16px}.dglobos .party-large .photo{aspect-ratio:.95;box-shadow:5px 5px 0 #171b20}.dglobos .party-small{padding:0 5px 12px 0}.dglobos .party-small .photo{aspect-ratio:.8;box-shadow:5px 5px 0 #171b20}.dglobos .party-routes>h2{font-size:37px}.dglobos .party-route{padding:23px;gap:30px;box-shadow:7px 7px 0 #171b20;margin-bottom:35px}.dglobos .party-route h3{font-size:40px}.dglobos .party-route p{font-size:17px}.dglobos .party-route .primary{font-size:16px;padding:12px 17px}.dglobos .party-close h2{font-size:42px}.dglobos .footer-brand{font-size:78px}
+}
+@media(max-width:360px){.dglobos .party-routes>h2{font-size:31px}.dglobos .party-route{padding:20px}.dglobos .party-route h3{font-size:34px}.dglobos .party-close h2{font-size:37px}
+}
+@media(prefers-reduced-motion:reduce){.photo img,a,button{transition:none!important}}

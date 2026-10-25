@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=DM+Sans:wght@400;500;600&display=swap');
+.gift-cutout{position:absolute;bottom:32px;right:0;width:42%;border:8px solid #c5db9c;border-radius:50%;transform:rotate(10deg);z-index:1}
+.gift-cutout .photo{border-radius:50%;aspect-ratio:1}
+.gift-paper-label{position:absolute;top:32px;left:30px;z-index:2;background:#c5db9c;padding:13px 24px;font:800 25px/.95 'Archivo',Arial,sans-serif;transform:rotate(-8deg);max-width:15ch;border:3px solid #812436}
+.tapinta{--paper:#101e1b;--ink:#f0f3e8;--soft:#253b33;--accent:#c4e6ab;--button-ink:#15271f;--display:'Cabinet Grotesk',Arial,sans-serif;--body:'DM Sans',Arial,sans-serif;font-size:17px}
+.tapinta h1,.tapinta h2,.tapinta h3{font-weight:500}
+.tapinta .demo-bar{background:#172a23;color:#e6eddf}
+.tapinta .wordmark{font-family:'Young Serif',Georgia,serif;font-size:29px}
+.tapinta .nav{background:#101e1b}
+.tapinta .floral-book{grid-template-columns:53% 47%;padding:0 var(--gutter);gap:0;align-items:start}
+.tapinta .botanical-plate{top:25px;height:690px;padding:45px 45px 70px 20px;perspective:1300px;background:transparent;isolation:isolate}
+.tapinta .botanical-plate:before{content:'';position:absolute;inset:30px 10px 80px 0;border:2px solid #789d7d;border-radius:50%;transform:rotate(-24deg);z-index:-1}
+.tapinta .botanical-plate>.photo{height:100%;border-radius:38px;border:9px solid #324c3d;transform:rotateY(12deg) rotateZ(-4deg);box-shadow:18px 25px 0 #080f0c;transition:transform .6s}
+.tapinta .botanical-plate:hover>.photo{transform:rotateY(0) rotateZ(-2deg)}
+.tapinta .photo-switch{position:absolute;bottom:25px;left:5%;right:8%;padding:12px;background:#e6eddf;color:#1c3528;border-radius:24px;box-shadow:0 12px 30px #0005;gap:3px;z-index:2}
+.tapinta .photo-switch button{border-radius:15px;padding:10px 16px;font-size:15px}
+.tapinta .photo-switch button[aria-pressed=true]{background:#244a32;color:#f0f3e8}
+.floral-satellite{position:absolute;width:30%;right:0;bottom:105px;padding:7px;background:#dbe8cf;border-radius:24px;transform:rotate(9deg);box-shadow:8px 12px 0 #080f0c;z-index:1}
+.floral-satellite .photo{border-radius:18px;aspect-ratio:1}
+.tapinta .floral-cover{padding:60px 0 70px 50px;min-height:690px;justify-content:center;gap:30px}
+.tapinta .floral-cover h1{font-size:clamp(78px,9vw,140px);font-weight:500;letter-spacing:-.065em}
+.tapinta .floral-cover .lead{font-size:23px;max-width:24ch}
+.tapinta .button,.tapinta button.primary{border-radius:18px;box-shadow:0 7px 0 #5f8850;font-weight:600}
+.tapinta .floral-thought{font-size:17px;color:#e1e9da;margin-top:15px}
+.tapinta .floral-catalog{padding:60px 0 30px 50px}
+.tapinta .floral-catalog h2{font-size:43px}
+.tapinta .category-tabs button{border-radius:16px;font-size:16px;padding:10px 17px}
+.tapinta .floral-catalog .product{background:#1c3028;padding:25px;border-radius:30px;margin-bottom:50px;box-shadow:10px 13px 0 #0a1510}
+.tapinta .floral-catalog .product>.photo{border-radius:20px;aspect-ratio:1.1}
+.tapinta .floral-catalog .product h3{font-size:32px}
+.tapinta .product-actions{flex-wrap:wrap;gap:12px}
+.tapinta .product-actions button{border-radius:15px}
+.tapinta .floral-close{background:#d5e2c9;color:#193326;--accent:#244a32;--button-ink:#f0f3e8;margin-top:70px}
+.tapinta .floral-close h2{font-size:58px}
+.tapinta .footer{background:#101e1b;color:#f0f3e8}
+.tapinta .footer-brand{font-family:'Young Serif',Georgia,serif}
+.tapinta dialog{background:#1c3028;color:#f0f3e8;border:2px solid #526f58;border-radius:28px}
+.tapinta input,.tapinta select,.tapinta textarea{background:#101e1b;color:#f0f3e8;border-color:#6e8a72;border-radius:12px}
+
+.style-name{display:inline-block;margin-top:14px;font-size:14px;font-weight:500;text-decoration:underline;text-underline-offset:5px}
+.hub{--body:'DM Sans',Arial,sans-serif;--display:'Cabinet Grotesk',Arial,sans-serif}
+
+@media(max-width:1100px){
+ .tapinta .botanical-plate{height:610px;padding-right:30px}.tapinta .floral-cover{min-height:610px;padding-left:35px}.tapinta .floral-cover h1{font-size:92px}.tapinta .floral-cover .lead{font-size:21px}.tapinta .floral-catalog{padding-left:35px}
+}
+@media(max-width:800px){.gift-paper-label{top:8px;left:40px}.gift-cutout{right:35px;bottom:35px;width:28%}
+ .tapinta .floral-book{grid-template-columns:48% 52%;padding:0 25px}.tapinta .botanical-plate{height:560px;padding:50px 25px 85px 0}.tapinta .floral-cover{padding-left:25px;min-height:560px}.tapinta .floral-cover h1{font-size:73px}.tapinta .floral-cover .lead{font-size:20px}.tapinta .floral-catalog{padding-left:25px}.tapinta .floral-catalog .product{padding:18px}.tapinta .photo-switch{left:0;right:0;padding:8px}.tapinta .photo-switch button{font-size:14px;padding:8px}.tapinta .floral-catalog h2{font-size:37px}.tapinta .floral-close h2{font-size:46px}
+}
+@media(max-width:600px){.gift-paper-label{font-size:19px;padding:10px 15px;top:0;left:12px}.gift-cutout{width:38%;right:10px;bottom:25px;border-width:6px}
+ .tapinta .floral-book{padding:0 var(--gutter);display:flex;align-items:stretch}.tapinta .floral-cover{padding:25px 0 40px;min-height:0;gap:25px}.tapinta .floral-cover h1{font-size:80px}.tapinta .floral-cover .lead{font-size:21px;max-width:none}.tapinta .botanical-plate{overflow:clip;height:440px;order:1;padding:15px 20px 75px 5px;margin-top:5px;margin-bottom:15px}.tapinta .botanical-plate>.photo{height:100%;aspect-ratio:auto;border-width:7px;border-radius:28px;transform:rotateZ(-3deg)}.tapinta .botanical-plate:before{inset:10px 0 50px}.tapinta .photo-switch{bottom:5px;left:0;right:0;border-radius:20px;padding:10px;gap:3px}.tapinta .photo-switch button{font-size:15px;padding:10px 12px}.floral-satellite{width:32%;bottom:90px;right:0}.tapinta .floral-catalog{padding:35px 0 10px;order:2}.tapinta .floral-catalog h2{font-size:37px}.tapinta .floral-catalog .product{padding:20px;border-radius:25px;box-shadow:7px 8px 0 #0a1510;margin-bottom:35px}.tapinta .floral-catalog h3{font-size:30px}.tapinta .floral-close{margin-top:35px}.tapinta .floral-close h2{font-size:43px}.tapinta .footer-brand{font-size:70px}
+}
+@media(max-width:360px){.tapinta .floral-cover h1{font-size:72px}.tapinta .botanical-plate{height:385px}.tapinta .photo-switch button{font-size:14px;padding:10px}.tapinta .floral-close h2{font-size:38px}
+}
+@media(prefers-reduced-motion:reduce){.tapinta .botanical-plate>.photo,.tapinta .botanical-plate:hover>.photo{transform:none}.photo img,a,button{transition:none!important}}

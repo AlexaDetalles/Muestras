@@ -1,0 +1,70 @@
+{
+  "name": "Tapinta",
+  "description": "Flores, globos y detalles para tus ocasiones especiales en Choluteca.",
+  "days": 0,
+  "faqs": [
+    {
+      "q": "¿Cómo preparo mi consulta?",
+      "a": "Elegí una referencia y agregá fecha, cantidad, ocasión y preferencias. Podés revisar todo antes de enviar tu consulta."
+    },
+    {
+      "q": "¿Cuál es el precio final?",
+      "a": "Los precios que agregues desde el panel son de demostración. El precio real, los complementos y la disponibilidad se confirman con el negocio."
+    },
+    {
+      "q": "¿Con cuánta anticipación consulto?",
+      "a": "Consultá con tu fecha deseada. El plazo y la disponibilidad se confirmarían con el negocio."
+    },
+    {
+      "q": "¿Puedo pedir entrega?",
+      "a": "Podés indicar tu preferencia. La cobertura, el costo y la posibilidad de envío deben confirmarse; no se promete entrega desde esta muestra."
+    }
+  ],
+  "products": [
+    {
+      "id": "tapinta-0",
+      "name": "Un ramo para regalar",
+      "category": "Ramos",
+      "shot": 0,
+      "description": "Compartí la ocasión y los colores que te gustan para consultar una propuesta.",
+      "days": 0,
+      "price": null,
+      "previousPrice": null,
+      "active": true
+    },
+    {
+      "id": "tapinta-1",
+      "name": "Flores en tonos suaves",
+      "category": "Ramos",
+      "shot": 1,
+      "description": "Una referencia para conversar sobre tamaño, colores y presentación.",
+      "days": 0,
+      "price": null,
+      "previousPrice": null,
+      "active": true
+    },
+    {
+      "id": "tapinta-2",
+      "name": "Un arreglo para la mesa",
+      "category": "Arreglos",
+      "shot": 2,
+      "description": "Indicá la fecha y el espacio que querés acompañar.",
+      "days": 0,
+      "price": null,
+      "previousPrice": null,
+      "active": true
+    },
+    {
+      "id": "tapinta-3",
+      "name": "Tu combinación de flores",
+      "category": "Arreglos",
+      "shot": 3,
+      "description": "Contanos qué imaginás. La selección floral se confirma al cotizar.",
+      "days": 0,
+      "price": null,
+      "previousPrice": null,
+      "active": true
+    }
+  ],
+  "id": "tapinta"
+}

@@ -1,0 +1,70 @@
+{
+  "name": "QuéDetalle",
+  "description": "Desayunos sorpresa, flores y regalos personalizados en Choluteca.",
+  "days": 0,
+  "faqs": [
+    {
+      "q": "¿Cómo preparo mi consulta?",
+      "a": "Elegí una referencia y agregá fecha, cantidad, ocasión y preferencias. Podés revisar todo antes de enviar tu consulta."
+    },
+    {
+      "q": "¿Cuál es el precio final?",
+      "a": "Los precios que agregues desde el panel son de demostración. El precio real, los complementos y la disponibilidad se confirman con el negocio."
+    },
+    {
+      "q": "¿Con cuánta anticipación consulto?",
+      "a": "Consultá con tu fecha deseada. El plazo y la disponibilidad se confirmarían con el negocio."
+    },
+    {
+      "q": "¿Puedo pedir entrega?",
+      "a": "Podés indicar tu preferencia. La cobertura, el costo y la posibilidad de envío deben confirmarse; no se promete entrega desde esta muestra."
+    }
+  ],
+  "products": [
+    {
+      "id": "quedetalle-0",
+      "name": "Empezar con una sorpresa",
+      "category": "Desayunos",
+      "shot": 0,
+      "description": "Un desayuno como punto de partida para un detalle personal.",
+      "days": 0,
+      "price": null,
+      "previousPrice": null,
+      "active": true
+    },
+    {
+      "id": "quedetalle-1",
+      "name": "Un detalle dulce",
+      "category": "Regalos",
+      "shot": 1,
+      "description": "Una propuesta de regalo para acompañar una fecha especial.",
+      "days": 0,
+      "price": null,
+      "previousPrice": null,
+      "active": true
+    },
+    {
+      "id": "quedetalle-2",
+      "name": "Decirlo con flores",
+      "category": "Flores",
+      "shot": 2,
+      "description": "Elegí la ocasión y contanos qué colores imaginás.",
+      "days": 0,
+      "price": null,
+      "previousPrice": null,
+      "active": true
+    },
+    {
+      "id": "quedetalle-3",
+      "name": "Algo para celebrar",
+      "category": "Regalos",
+      "shot": 3,
+      "description": "Prepará una consulta para una sorpresa de cumpleaños.",
+      "days": 0,
+      "price": null,
+      "previousPrice": null,
+      "active": true
+    }
+  ],
+  "id": "quedetalle"
+}

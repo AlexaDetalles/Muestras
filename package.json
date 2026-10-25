@@ -1,0 +1,14 @@
+{
+  "name": "krombyte-muestras",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "test": "node tests/contracts.mjs",
+    "dev": "node scripts/preview.mjs"
+  },
+  "devDependencies": {
+    "esbuild": "0.28.2",
+    "@supabase/supabase-js": "2.57.4"
+  }
+}

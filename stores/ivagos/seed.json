@@ -1,0 +1,70 @@
+{
+  "name": "Ivagos",
+  "description": "Repostería y pasteles por encargo en Choluteca.",
+  "days": 4,
+  "faqs": [
+    {
+      "q": "¿Cómo preparo mi consulta?",
+      "a": "Elegí una referencia y agregá fecha, cantidad, ocasión y preferencias. Podés revisar todo antes de enviar tu consulta."
+    },
+    {
+      "q": "¿Cuál es el precio final?",
+      "a": "Los precios que agregues desde el panel son de demostración. El precio real, los complementos y la disponibilidad se confirman con el negocio."
+    },
+    {
+      "q": "¿Con cuánta anticipación consulto?",
+      "a": "La muestra contempla cuatro días para pasteles por encargo. Los postres se consultan según disponibilidad."
+    },
+    {
+      "q": "¿Puedo pedir entrega?",
+      "a": "Podés indicar tu preferencia. La cobertura, el costo y la posibilidad de envío deben confirmarse; no se promete entrega desde esta muestra."
+    }
+  ],
+  "products": [
+    {
+      "id": "ivagos-0",
+      "name": "Pastel de celebración",
+      "category": "Pasteles",
+      "shot": 0,
+      "description": "Consultá una propuesta según tu ocasión, porciones y fecha.",
+      "days": 4,
+      "price": null,
+      "previousPrice": null,
+      "active": true
+    },
+    {
+      "id": "ivagos-1",
+      "name": "Una porción dulce",
+      "category": "Postres",
+      "shot": 1,
+      "description": "Preguntá por los postres disponibles antes de pasar por el tuyo.",
+      "days": 0,
+      "price": null,
+      "previousPrice": null,
+      "active": true
+    },
+    {
+      "id": "ivagos-2",
+      "name": "Un antojo dulce",
+      "category": "Postres",
+      "shot": 2,
+      "description": "Contanos qué te gustaría y consultá las opciones del día.",
+      "days": 0,
+      "price": null,
+      "previousPrice": null,
+      "active": true
+    },
+    {
+      "id": "ivagos-3",
+      "name": "Postre para regalar",
+      "category": "Postres",
+      "shot": 3,
+      "description": "Prepará una consulta con cantidad y fecha deseada.",
+      "days": 0,
+      "price": null,
+      "previousPrice": null,
+      "active": true
+    }
+  ],
+  "id": "ivagos"
+}
