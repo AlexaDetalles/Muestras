@@ -10,3 +10,6 @@ body[data-business=dglobos] .canvas,body[data-business=dglobos] .panel,body[data
 .brand-store-name{display:block}.sidebar .maker-credit{display:block;margin-top:5px}
 
 body[data-business] :focus-visible{outline-color:var(--accent)}body[data-mode=admin] .full-admin-link{display:none!important}
+
+/* Preserve contrast where the section uses a different action fill. */
+body[data-business=dglobos] a.button{color:#f8f4e8}

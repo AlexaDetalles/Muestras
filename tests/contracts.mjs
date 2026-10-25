@@ -12,3 +12,11 @@ for(const id of ids){
  }
 }
 console.log('Tutoriales: 15 escenarios de tienda y panel correctos.');
+
+for(const id of ids){
+ const html=await readFile('dist/'+id+'/index.html','utf8');
+ const app=await readFile('dist/'+id+'/assets/app.mjs','utf8');
+ assert.match(html,/assets\/style\.css\?v=/,'Las actualizaciones deben renovar los estilos en caché');
+ assert.match(app,/tutorial\.mjs\?v=/,'Las actualizaciones deben renovar también la guía importada');
+}
+console.log('Caché: estilos y módulos versionados en las cinco tiendas.');

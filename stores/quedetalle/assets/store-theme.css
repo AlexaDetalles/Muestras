@@ -10,3 +10,6 @@ body[data-business=quedetalle] .page-heading h1{font-size:32px;font-weight:800;l
 .brand-store-name{display:block}.sidebar .maker-credit{display:block;margin-top:5px}
 
 body[data-business] :focus-visible{outline-color:var(--accent)}body[data-mode=admin] .full-admin-link{display:none!important}
+
+/* Preserve contrast where the section uses a different action fill. */
+body[data-business=quedetalle] .gift-letter button.primary{color:var(--button-ink)}

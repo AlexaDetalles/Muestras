@@ -2,6 +2,7 @@ import {readFile,writeFile,readdir,mkdir,rm,cp} from 'node:fs/promises';
 import {build} from 'esbuild';
 import path from 'node:path';
 const cloud=JSON.parse(await readFile('cloud.json','utf8'));
+const version=process.env.GITHUB_SHA||Date.now().toString(36);
 const shops=['esmeraldas','ivagos','quedetalle','tapinta','dglobos'];
 await rm('dist',{recursive:true,force:true});await mkdir('dist',{recursive:true});
 for(const shop of shops){
@@ -18,7 +19,7 @@ for(const shop of shops){
  const receiptPath=target+'/assets/receipt.mjs';let receipt=await readFile(receiptPath,'utf8');await writeFile(receiptPath,"import {apiResponse} from './transport.mjs';\n"+receipt.replace("else fetch(","else apiResponse("));
  const adminPath=target+'/assets/admin.mjs';let admin=await readFile(adminPath,'utf8');admin=admin.replace("catch(e){notify(e.message);app.innerHTML=", "catch(e){if(/acceso|sesión|permiso/i.test(e.message)){location.replace('/admin/');}notify(e.message);app.innerHTML=");await writeFile(adminPath,admin);
  const cfg=JSON.stringify({...cloud,shop}).replace(/</g,'\\u003c');
- async function rewrite(dir){for(const e of await readdir(dir,{withFileTypes:true})){const f=dir+'/'+e.name;if(e.isDirectory())await rewrite(f);else if(/\.(html|mjs|css)$/.test(f)){let s=await readFile(f,'utf8');if(f.endsWith('.html')){s=s.replace(/\b(href|src|action|poster)=(['"])\/(?!\/)/g,(_,a,q)=>a+'='+q+prefix+'/');s=s.replace('</head>','<script id="cloud-config" type="application/json">'+cfg+'</script></head>');}else if(f.endsWith('.mjs'))s=s.replace(/(['"`])\/(?!\/)/g,(_,q)=>q+prefix+'/');else s=s.replace(/url\(\s*(['"]?)\/(?!\/)/g,(_,q)=>'url('+q+prefix+'/');await writeFile(f,s);}}}
+ async function rewrite(dir){for(const e of await readdir(dir,{withFileTypes:true})){const f=dir+'/'+e.name;if(e.isDirectory())await rewrite(f);else if(/\.(html|mjs|css)$/.test(f)){let s=await readFile(f,'utf8');if(f.endsWith('.html')){s=s.replace(/\b(href|src|action|poster)=(['"])\/(?!\/)/g,(_,a,q)=>a+'='+q+prefix+'/');s=s.replace(/(\b(?:href|src)=['"][^'"]+\.(?:css|mjs))(['"])/g,'$1?v='+version+'$2');s=s.replace('</head>','<script id="cloud-config" type="application/json">'+cfg+'</script></head>');}else if(f.endsWith('.mjs'))s=s.replace(/(['"`])\/(?!\/)/g,(_,q)=>q+prefix+'/').replace(/(['"])([^'"\s]+\.mjs)\1/g,(_,q,url)=>q+url+'?v='+version+q);else s=s.replace(/url\(\s*(['"]?)\/(?!\/)/g,(_,q)=>'url('+q+prefix+'/');await writeFile(f,s);}}}
  await rewrite(target);
  // Transport is bundled after route adaptation so its external API paths stay intact.
  await build({entryPoints:['src/transport.mjs'],outfile:target+'/assets/transport.mjs',bundle:true,format:'esm',target:'es2022',minify:true});
